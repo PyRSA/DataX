@@ -215,6 +215,13 @@
             </includes>
             <outputDirectory>datax</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>hbase23xsqlreader/target/datax/</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+            <outputDirectory>datax</outputDirectory>
+        </fileSet>
 
         <!-- writer -->
         <fileSet>
@@ -443,6 +450,13 @@
         </fileSet>
         <fileSet>
             <directory>hologresjdbcwriter/target/datax/</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+            <outputDirectory>datax</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>hbase23xwriter/target/datax/</directory>
             <includes>
                 <include>**/*.*</include>
             </includes>

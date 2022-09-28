@@ -64,6 +64,7 @@
         <module>hbase094xreader</module>
         <module>hbase11xsqlreader</module>
         <module>hbase20xsqlreader</module>
+        <module>hbase23xreader</module>
 
         <module>ossreader</module>
         <module>hdfsreader</module>
@@ -100,6 +101,7 @@
         <module>hbase094xwriter</module>
         <module>hbase11xsqlwriter</module>
         <module>hbase20xsqlwriter</module>
+        <module>hbase23xwriter</module>
         <module>kuduwriter</module>
         <module>ftpwriter</module>
         <module>hdfswriter</module>
