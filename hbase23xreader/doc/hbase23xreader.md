@@ -33,35 +33,35 @@ HbaseReader 插件实现了从 Hbase中读取数据。在底层实现上，Hbase
   "reader": {
           "name": "hbase23xreader"
       }
-
+  ```
 2、目前HbaseReader支持两模式读取：normal 模式、multiVersionFixedColumn模式；
 
 * normal 模式：把HBase中的表，当成普通二维表（横表）进行读取,读取最新版本数据。如：
 
 	```
-hbase(main):017:0> scan 'users'
-ROW                                   COLUMN+CELL
- lisi                                 column=address:city, timestamp=1457101972764, value=beijing
- lisi                                 column=address:contry, timestamp=1457102773908, value=china
- lisi                                 column=address:province, timestamp=1457101972736, value=beijing
- lisi                                 column=info:age, timestamp=1457101972548, value=27
- lisi                                 column=info:birthday, timestamp=1457101972604, value=1987-06-17
- lisi                                 column=info:company, timestamp=1457101972653, value=baidu
- xiaoming                             column=address:city, timestamp=1457082196082, value=hangzhou
- xiaoming                             column=address:contry, timestamp=1457082195729, value=china
- xiaoming                             column=address:province, timestamp=1457082195773, value=zhejiang
- xiaoming                             column=info:age, timestamp=1457082218735, value=29
- xiaoming                             column=info:birthday, timestamp=1457082186830, value=1987-06-17
- xiaoming                             column=info:company, timestamp=1457082189826, value=alibaba
-2 row(s) in 0.0580 seconds
-  ```
+    hbase(main):017:0> scan 'users'
+    ROW                                   COLUMN+CELL
+     lisi                                 column=address:city, timestamp=1457101972764, value=beijing
+     lisi                                 column=address:contry, timestamp=1457102773908, value=china
+     lisi                                 column=address:province, timestamp=1457101972736, value=beijing
+     lisi                                 column=info:age, timestamp=1457101972548, value=27
+     lisi                                 column=info:birthday, timestamp=1457101972604, value=1987-06-17
+     lisi                                 column=info:company, timestamp=1457101972653, value=baidu
+     xiaoming                             column=address:city, timestamp=1457082196082, value=hangzhou
+     xiaoming                             column=address:contry, timestamp=1457082195729, value=china
+     xiaoming                             column=address:province, timestamp=1457082195773, value=zhejiang
+     xiaoming                             column=info:age, timestamp=1457082218735, value=29
+     xiaoming                             column=info:birthday, timestamp=1457082186830, value=1987-06-17
+     xiaoming                             column=info:company, timestamp=1457082189826, value=alibaba
+    2 row(s) in 0.0580 seconds
+    ```
 读取后数据
-
+  ```
 	| rowKey    | addres:city          | address:contry   | address:province | 	info:age| info:birthday    | info:company           | 
 	| --------| ---------------- |-----     |-----  |--------| ---------------- |-----     |
-| lisi  | beijing|  china| beijing |27 | 1987-06-17 | baidu|
-| xiaoming  | hangzhou| china | zhejiang|29 | 1987-06-17 | alibaba|
-
+    | lisi  | beijing|  china| beijing |27 | 1987-06-17 | baidu|
+    | xiaoming  | hangzhou| china | zhejiang|29 | 1987-06-17 | alibaba|
+  ```
 
 
 * multiVersionFixedColumn模式：把HBase中的表，当成竖表进行读取。读出的每条记录一定是四列形式，依次为：rowKey，family:qualifier，timestamp，value。读取时需要明确指定要读取的列，把每一个 cell 中的值，作为一条记录（record），若有多个版本就有多条记录（record）。如：
@@ -86,7 +86,7 @@ ROW                                   COLUMN+CELL
 ```
 读取后数据(4列)
 
-	| rowKey  | column:qualifier| timestamp | value |
+| rowKey  | column:qualifier| timestamp | value |
 | --------| ---------------- |-----     |-----  |
 | lisi  | address:city| 1457101972764 | beijing |
 | lisi  | address:contry| 1457102773908 | china |
