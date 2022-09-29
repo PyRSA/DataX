@@ -216,7 +216,7 @@
             <outputDirectory>datax</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>hbase23xsqlreader/target/datax/</directory>
+            <directory>hbase23xreader/target/datax/</directory>
             <includes>
                 <include>**/*.*</include>
             </includes>
